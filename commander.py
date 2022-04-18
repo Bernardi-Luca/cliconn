@@ -14,6 +14,7 @@ def init(rootFolder):
             listHosts(rootFolder + '\\rdp.yaml','rdp')
         case '3':
             print('exit')
+            os.system('cmd')
             exit(0)
         case '4':
             print('opening folder')
