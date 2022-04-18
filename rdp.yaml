@@ -1,0 +1,7 @@
+host-windows-1:
+  ip: 8.8.8.8
+  width: 1920
+  height: 1080
+
+host-windows-2:
+  ip: 8.8.8.8

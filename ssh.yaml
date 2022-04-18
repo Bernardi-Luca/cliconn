@@ -1,0 +1,7 @@
+linux.1:
+  ip: 1.1.1.1
+  user: root
+
+linux.2:
+  ip: 2.2.2.2
+  user: lbernardi
