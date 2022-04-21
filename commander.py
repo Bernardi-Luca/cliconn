@@ -2,27 +2,37 @@ import os
 import yaml
 
 def init(rootFolder):
-    choice = input("mode?\n[1]SSH\n[2]rdp\n[3]exit\n[4]open folder\nchoice==> ")
+
+    print(' ██████╗██╗     ██╗ ██████╗ ██████╗ ███╗   ██╗███╗   ██╗ ')
+    print('██╔════╝██║     ██║██╔════╝██╔═══██╗████╗  ██║████╗  ██║ ')
+    print('██║     ██║     ██║██║     ██║   ██║██╔██╗ ██║██╔██╗ ██║ ')
+    print('██║     ██║     ██║██║     ██║   ██║██║╚██╗██║██║╚██╗██║ ')
+    print('╚██████╗███████╗██║╚██████╗╚██████╔╝██║ ╚████║██║ ╚████║ ')
+    print(' ╚═════╝╚══════╝╚═╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═══╝ ')
+
+    choice = input("mode?\n[1]SSH\n[2]rdp\n[3]exit\n[4]open conf folder\nchoice==> ")
     print(choice)
 
     match choice:
         case '1':
-            print('ssh')
+            print('--- ssh selected ---')
             listHosts(rootFolder + '\ssh.yaml','ssh')
+            returnCmd()
         case '2':
-            print('rdp')
+            print('--- rdp selected ---')
             listHosts(rootFolder + '\\rdp.yaml','rdp')
+            returnCmd()
         case '3':
-            print('exit')
-            os.system('cmd')
-            exit(0)
+            print('--- exiting ---')
+            returnCmd()
         case '4':
-            print('opening folder')
+            print('--- opening folder ---')
             os.system('explorer.exe '+rootFolder)
-            exit(0)
+            returnCmd()
         case _:
-            print('pendejo')
+            print('pendejo >:(')
             exit(1)
+            returnCmd()
 
 def listHosts(sshConf,mode):
     with open(sshConf) as sshConf:
@@ -36,8 +46,6 @@ def listHosts(sshConf,mode):
 
         item = sshLoaded.get(hosts[int(choice)])
         print(item)
-        #for item in sshLoaded:
-           #print(item.['ip'])
 
     match mode:
         case 'ssh':
@@ -70,3 +78,7 @@ def execRDP(itemDict):
         comm = comm + ' /f'
 
     os.system(comm)
+
+def returnCmd():
+    os.system('cmd')
+    exit(0)
